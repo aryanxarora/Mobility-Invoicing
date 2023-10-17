@@ -4,12 +4,9 @@ import Navbar from "./Navbar";
 
 function Dashboard() {
   return (
-    <div className="h-screen">
-      <Navbar />
-      <div className="flex h-[90%]">
-        <Sidebar />
-        <Content />
-      </div>
+    <div className="flex h-[90%]">
+      <Sidebar />
+      <Content />
     </div>
   );
 }

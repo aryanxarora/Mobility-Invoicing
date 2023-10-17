@@ -2,7 +2,6 @@ function Invoice() {
   return (
     <a
       href="/invoice/aidf"
-      target="_blank"
       className="flex bg-slate-100 hover:bg-slate-200 px-10 py-5 items-center rounded-2xl"
     >
       <h1 href="" className="w-2/12">

@@ -6,10 +6,12 @@ import {
 import './styles/App.css';
 import Dashboard from "./components/Dashboard";
 import InvoiceInfo from "./components/InvoiceInfo";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App h-screen">
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Dashboard />} />

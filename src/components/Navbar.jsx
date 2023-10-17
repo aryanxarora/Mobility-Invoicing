@@ -6,7 +6,9 @@ function Navbar() {
     <nav className="h-[10%] px-10 py-2 flex flex-col justify-around shadow-md shadow-slate-100 z-10">
       <div className="flex justify-between">
         <div className="flex justify-center items-center gap-5">
-          <img src={logo} alt="" className="w-10" />
+          <a href="/">
+            <img src={logo} alt="" className="w-10" />
+          </a>
           <h1 className="text-2xl">Invoices</h1>
         </div>
         <div className="flex justify-center items-center">
