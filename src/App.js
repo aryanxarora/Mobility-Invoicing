@@ -5,15 +5,14 @@ import {
 } from "react-router-dom";
 import './styles/App.css';
 import Navbar from './components/Navbar';
-import Sample from "./components/Sample";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Sample />} />
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </Router>      
     </div>
