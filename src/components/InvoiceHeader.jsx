@@ -1,7 +1,7 @@
 function Invoice() {
   return (
-    <div className="flex bg-white border-solid border-b-2 border-slate-100 px-10 pb-5 mb-5 items-center font-semibold sticky top-0">
-      <h1 className="w-2/12">Invoice ID</h1>
+    <div className="flex bg-white border-solid border-b-2 border-slate-100 px-10 py-5 mb-5 items-center font-semibold sticky top-0">
+      <h1 className="w-2/12 ">Invoice ID</h1>
       <div className="flex items-center w-2/12 justify-around">
         <h1>Customer</h1>
       </div>

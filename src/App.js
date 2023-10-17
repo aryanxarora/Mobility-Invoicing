@@ -4,8 +4,8 @@ import {
   Route
 } from "react-router-dom";
 import './styles/App.css';
-import Navbar from './components/Navbar';
 import Dashboard from "./components/Dashboard";
+import InvoiceInfo from "./components/InvoiceInfo";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/invoice/*" element={<InvoiceInfo />} />
         </Routes>
       </Router>      
     </div>
