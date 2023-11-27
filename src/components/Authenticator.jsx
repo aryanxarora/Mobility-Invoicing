@@ -32,7 +32,7 @@ function Authenticator() {
         >
           Log in
         </a>
-        <a className="text-center underline text-blue-400" href="/">
+        <a className="text-center underline text-blue-500" href="/">
           Register for an account
         </a>
       </div>
