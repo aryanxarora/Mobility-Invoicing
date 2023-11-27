@@ -7,6 +7,7 @@ import './styles/App.css';
 import Dashboard from "./components/Dashboard";
 import InvoiceInfo from "./components/InvoiceInfo";
 import Navbar from "./components/Navbar";
+import Authenticator from "./components/Authenticator";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
+          <Route path="/auth" element={<Authenticator />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/invoice/*" element={<InvoiceInfo />} />
         </Routes>
