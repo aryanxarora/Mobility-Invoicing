@@ -7,48 +7,16 @@ import logo from "../assets/logo.png";
 function InvoiceInfo() {
   const pdfRef = useRef();
 
-  // const downloadPDF = () => {
-  //   const input = pdfRef.current;
-  //   html2canvas(input).then((canvas) => {
-  //     const imgData = canvas.toDataURL('image/png');
-  //     const pdf = new jsPDF('p', 'mm', 'a4', true);
-  //     const pdfWidth = pdf.internal.pageSize.getWidth();
-  //     const pdfHeight = pdf.internal.pageSize.getHeight();
-  //     const imgWidth = canvas.width;
-  //     const imgHeight = canvas.height;
-  //     const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-  //     const imgX = (pdfWidth - imgWidth * ratio) / 2;
-  //     const imgY = 30;
-  //     pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-  //     pdf.save('invoice.pdf');
-  //   });
-  // }
-
-  // const downloadPDF = () => {
-  //   const input = pdfRef.current;
-  //   const doc = new jsPDF('p', 'pt', 'a4', true);
-
-  //   doc.html(input, {
-  //     callback: function(pdf){
-  //       var pageCount = doc.internal.getNumberOfPages();
-  //       pdf.deletePage(pageCount);
-  //       pdf.save("invoice.pdf");
-  //     },
-  //   })
-  // }
-
   const downloadPDF = () => {
     var doc = new jsPDF({
       compress: true,
       putOnlyUsedFonts:true
     });
 	
-    // Source HTMLElement or a string containing HTML.
     var elementHTML = document.querySelector("#pdfContainer");
 
     doc.html(elementHTML, {
         callback: function(doc) {
-            // Save the PDF
             doc.save('invoice.pdf');
         },
         margin: [10, 10, 10, 10],
@@ -59,6 +27,7 @@ function InvoiceInfo() {
         windowWidth: 675 //window width in CSS pixels
     });
   }
+
   return (
     <div className="bg-slate-200 h-[90%] flex p-10">
 
