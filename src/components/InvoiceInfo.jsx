@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import { useRef } from 'react';
 import logo from "../assets/logo.png";
 
+
 function InvoiceInfo() {
   const pdfRef = useRef();
 
@@ -103,7 +104,11 @@ function InvoiceInfo() {
 
       <div id="infoSection" className="basis-1/3 ml-10">
         <h1>Info Section</h1>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={downloadPDF}>Generate PDF</button>
+        // To do: emailJS
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={downloadPDF}>[A] Send Invoice to Client</button>
+        // To do: Stripe Paywall
+        <button className="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded-full" onClick={downloadPDF}>[C] Pay Invoice</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={downloadPDF}>Download PDF</button>
       </div>
     </div>
   );
