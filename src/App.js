@@ -1,7 +1,7 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import { useState } from "react";
@@ -13,22 +13,26 @@ import InvoiceInfo from "./components/InvoiceInfo";
 import Navbar from "./components/Navbar";
 import Authenticator from "./components/Authenticator";
 import Dashboard from "./components/Dashboard";
+import Register from "./components/Register";
 
 
 function App() {
 
-  const [cookies, setCookie, removeCookie] = useCookies(['auth', 'name']);
+  const [cookies, setCookie, removeCookie] = useCookies(['auth', 'name', 'user', 'invoices']);
   // setCookie('auth', false, { path: '/' });
   const [user, setUser] = useState({});
+  const [invoices, setInvoices] = useState([]);
 
-  const handleAuthSuccess = (user) => {
+  const handleAuthSuccess = (data) => {
       setCookie('auth', true, { path: '/' });
-      setCookie('name', 'Aryan Arora', { path: '/' });
-      console.log("IN HANDLE", cookies);
+      setCookie('name', data.user.firstName + " " + data.user.lastName, { path: '/' });
+      setCookie('user', data.user, { path: '/' });
+      setCookie('invoices', data.invoice, { path: '/' });
   };
 
   const handleLogout = () => {
       setCookie('auth', false, { path: '/' });
+      window.location.href = '/';
   };
 
   return (
@@ -36,13 +40,22 @@ function App() {
       <Navbar cookies={cookies} onLogout={handleLogout} />
       <Router>
         <Routes>
-          { console.log("BEFORE RENDER", cookies) }
           { cookies.auth ? 
             (<Route path="/" element={<Dashboard />} /> ) :
             (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
           }
-          <Route path="/invoice" element={<InvoiceTab />} />
-          <Route path="/invoice/*" element={<InvoiceInfo />} />
+          { cookies.auth ? 
+            (<Route path="/invoice" element={<InvoiceTab cookies={cookies} />} /> ) :
+            (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
+          }
+          { cookies.auth ? 
+            (<Route path="/invoice/*" element={<InvoiceInfo />} /> ) :
+            (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
+          }
+          { cookies.auth ? 
+            (<Route path="/register" element={<Dashboard />} /> ) :
+            (<Route path="/register" element={<Register />} /> )
+          }
         </Routes>
       </Router>      
     </div>

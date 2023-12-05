@@ -1,14 +1,39 @@
-function Authenticator({ onAuthSuccess }) {
-  function handleLogin() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+import { useState } from "react";
 
-    // TODO: POST REQUEST TO API TO GET LOGIN DETAILS
-    // fetch("https://vanierbillingapi.azurewebsites.net/api/User/Users")
-    //   .then((res) => res.json())
-    //   .then((user) => onAuthSuccess(user));
-    const user = null;
-    onAuthSuccess(user);
+function Authenticator({ onAuthSuccess }) {
+  const [invalid, setInvalid] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  function handleLogin() {
+    setLoading(true);
+    const apiUrl =
+      "https://vanierbillingapi.azurewebsites.net/api/User/loginEmailPass";
+    const userData = {
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+    };
+
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
+      .then((user) => {
+        onAuthSuccess(user);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+        setLoading(false);
+        setInvalid(true);
+      });
   }
 
   return (
@@ -17,6 +42,13 @@ function Authenticator({ onAuthSuccess }) {
         <h1 className="text-left font-bold text-2xl">
           Sign in to your account
         </h1>
+        {invalid ? (
+          <span className="bg-red-50 px-3 py-3 ring-1 ring-red-400 rounded-sm text-red-400">
+            Invalid login credentials!
+          </span>
+        ) : (
+          <span></span>
+        )}
         <div className="">
           <label htmlFor="email">Email</label>
           <br />
@@ -26,6 +58,7 @@ function Authenticator({ onAuthSuccess }) {
             id="email"
             name="email"
             placeholder="you@example.com"
+            // value="demo@example.com"
           />
         </div>
         <div>
@@ -36,13 +69,15 @@ function Authenticator({ onAuthSuccess }) {
             type="password"
             id="password"
             name="password"
+            // value="demo"
           />
         </div>
         <button
           className="bg-black w-full px-3 py-3 text-center font-bold rounded-md text-white"
           onClick={handleLogin}
+          disabled={loading}
         >
-          Log in
+          {loading ? "Processing..." : "Log in"}
         </button>
         <a className="text-center underline text-blue-500" href="/register">
           Register for an account
