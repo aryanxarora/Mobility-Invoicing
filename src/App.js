@@ -28,6 +28,8 @@ function App() {
       setCookie('name', data.user.firstName + " " + data.user.lastName, { path: '/' });
       setCookie('user', data.user, { path: '/' });
       setCookie('invoices', data.invoice, { path: '/' });
+      setCookie('address', data.address, { path: '/' });
+      
   };
 
   const handleLogout = () => {
@@ -41,7 +43,7 @@ function App() {
       <Router>
         <Routes>
           { cookies.auth ? 
-            (<Route path="/" element={<Dashboard />} /> ) :
+            (<Route path="/" element={<Dashboard cookies={cookies} />} /> ) :
             (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
           }
           { cookies.auth ? 

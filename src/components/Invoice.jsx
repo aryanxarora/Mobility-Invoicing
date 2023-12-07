@@ -7,7 +7,7 @@ function Invoice({ invoice, user }) {
       className="flex bg-slate-100 hover:bg-slate-200 px-10 py-5 items-center rounded-2xl"
     >
       <h1 href="" className="w-2/12">
-        # 20549{invoice.id}
+        # {invoice.id}
       </h1>
       <div className="flex items-center w-3/12 justify-around">
         {user.usertype == true ? (

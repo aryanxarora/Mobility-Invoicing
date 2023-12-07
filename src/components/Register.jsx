@@ -2,13 +2,14 @@ import { useState } from "react";
 
 function Register() {
   const apiUrl = "https://vanierbillingapi.azurewebsites.net/api/User/create";
+  const [invalid, setInvalid] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    phone: null,
-    userType: null,
+    phone: "",
+    userType: false,
     address: "",
     city: "",
     province: "",
@@ -27,12 +28,37 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        } else {
+          window.location.href = "/";
+        }
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+        setInvalid(true);
+      });
   };
 
   return (
     <div className="bg-slate-200 h-[90%] p-20 flex justify-center items-center">
       <div className="flex flex-col justify-center bg-white p-20 shadow-xl gap-7 w-[700px] rounded-md">
         <h1 className="text-left font-bold text-2xl">Create a new account</h1>
+        {invalid ? (
+          <span className="bg-red-50 px-3 py-3 ring-1 ring-red-400 rounded-sm text-red-400">
+            Unable to create account!
+          </span>
+        ) : (
+          <span></span>
+        )}
         <div>
           <form onSubmit={handleSubmit} className="w-full">
             <div className="grid grid-cols-1 gap-4">
@@ -127,6 +153,7 @@ function Register() {
               <button
                 className="bg-black w-full px-3 py-3 text-center font-bold rounded-md text-white"
                 type="submit"
+                onClick={handleSubmit}
               >
                 Register
               </button>

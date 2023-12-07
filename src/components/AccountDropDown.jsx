@@ -45,15 +45,14 @@ function AccountDropDown({ cookies, onLogout }) {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="/settings"
+                <button
+                  disabled
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
+                    " text-gray-400 block px-4 py-2 text-sm w-full text-left cusror-not-allowed"
                   )}
                 >
                   Account settings
-                </a>
+                </button>
               )}
             </Menu.Item>
 
