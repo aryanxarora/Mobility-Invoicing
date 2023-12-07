@@ -29,7 +29,7 @@ function App() {
       setCookie('user', data.user, { path: '/' });
       setCookie('invoices', data.invoice, { path: '/' });
       setCookie('address', data.address, { path: '/' });
-      
+      console.log(data);
   };
 
   const handleLogout = () => {
