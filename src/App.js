@@ -49,7 +49,7 @@ function App() {
             (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
           }
           { cookies.auth ? 
-            (<Route path="/invoice/*" element={<InvoiceInfo />} /> ) :
+            (<Route path="/invoice/*" element={<InvoiceInfo cookies={cookies} />} /> ) :
             (<Route path="/" element={<Authenticator onAuthSuccess={handleAuthSuccess} />} /> )
           }
           { cookies.auth ? 

@@ -3,7 +3,7 @@ function Invoice({ invoice, user }) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return (
     <a
-      href="/invoice/aidf"
+      href={`/invoice/${invoice.id}`}
       className="flex bg-slate-100 hover:bg-slate-200 px-10 py-5 items-center rounded-2xl"
     >
       <h1 href="" className="w-2/12">
