@@ -12,11 +12,11 @@ function Sidebar() {
             Invoices
           </li>
         </a>
-        <a href="/">
+        {/* <a href="/">
           <li className="px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer">
             Clients
           </li>
-        </a>
+        </a> */}
       </ul>
       {/* <h1 className="px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer">
         Settings
