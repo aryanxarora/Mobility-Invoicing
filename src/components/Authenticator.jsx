@@ -58,7 +58,7 @@ function Authenticator({ onAuthSuccess }) {
             id="email"
             name="email"
             placeholder="you@example.com"
-            value="demouser@gmail.com"
+            // value="demouser@gmail.com"
           />
         </div>
         <div>
@@ -69,7 +69,7 @@ function Authenticator({ onAuthSuccess }) {
             type="password"
             id="password"
             name="password"
-            value="demo"
+            // value="demo"
           />
         </div>
         <button
