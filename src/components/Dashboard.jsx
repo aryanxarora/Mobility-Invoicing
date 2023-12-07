@@ -1,10 +1,11 @@
 import Sidebar from "./Sidebar";
+import refer from "../assets/refer.svg";
 
 function Dashboard({ cookies }) {
   return (
     <div className="flex h-[90%]">
       <Sidebar />
-      <div className="basis-4/5 p-10 flex flex-col">
+      <div className="basis-4/5 p-10 px-40 flex flex-col overflow-scroll overflow-x-hidden">
         <h1 className="text-center font-black text-3xl py-5">My Plans</h1>
         <div className="bg-slate-100 p-10 rounded-lg mt-5">
           <div className="flex justify-between items-center">
@@ -49,6 +50,22 @@ function Dashboard({ cookies }) {
                 Modify
               </a>
             </div>
+          </div>
+        </div>
+        <div className="bg-slate-100 p-10 rounded-lg mt-5 px-40 flex gap-[200px]">
+          <img className="w-64" src={refer} alt="" />
+          <div className="flex flex-col justify-center gap-3">
+            <h1 className="font-bold text-2xl">Refer your friends</h1>
+            <p>
+              Refer a friend and you’ll each get $25. Share the joy and invite
+              as many friends as you like!
+            </p>
+            <a
+              className="bg-black text-white font-bold py-2 px-5 rounded-xl hover:bg-gray-600 w-[180px] text-center mt-5"
+              href="#"
+            >
+              Send Invitation
+            </a>
           </div>
         </div>
       </div>
