@@ -5,12 +5,12 @@ function Dashboard({ cookies }) {
   return (
     <div className="flex h-[90%]">
       <Sidebar />
-      <div className="basis-4/5 p-10 px-40 flex flex-col overflow-scroll overflow-x-hidden">
+      <div className="basis-4/5 p-10 flex flex-col overflow-scroll overflow-x-hidden">
         <h1 className="text-center font-black text-3xl py-5">My Plans</h1>
         <div className="bg-slate-100 p-10 rounded-lg mt-5">
           <div className="flex justify-between items-center">
             <div className="">
-              <h2 className="font-bold text-2xl">Internet</h2>
+              <h2 className="font-bold text-2xl">Mobility</h2>
               <h3 className="font-bold text-xl text-slate-600">
                 {cookies.address.address}
               </h3>
@@ -38,8 +38,8 @@ function Dashboard({ cookies }) {
             </div>
             <div className="bg-slate-200 shadow-sm w-1/4 h-[120px] p-5 rounded-xl">
               <h2 className="font-bold mb-3">Plan</h2>
-              <h3 className="text-sm">Download: 200 Mbps</h3>
-              <h3 className="text-sm">Upload: 20 Mbps</h3>
+              <h3 className="text-sm">Ulimited Text and Call in Canada</h3>
+              <h3 className="text-sm">Data: 45GB 5G</h3>
             </div>
             <div className="bg-slate-200 shadow-sm w-1/4 h-[120px] p-5 rounded-xl">
               <h2 className="font-bold mb-3">Payment in 28 days</h2>
