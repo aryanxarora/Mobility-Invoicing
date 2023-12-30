@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Register() {
   const apiUrl = "https://vanierbillingapi.azurewebsites.net/api/User/create";
-  const [invalid, setInvalid] = useState(false);
+  const [invalid, setInvalid] = useState(true);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +54,7 @@ function Register() {
         <h1 className="text-left font-bold text-2xl">Create a new account</h1>
         {invalid ? (
           <span className="bg-red-50 px-3 py-3 ring-1 ring-red-400 rounded-sm text-red-400">
-            Unable to create account!
+            Azure is down, please try again later!
           </span>
         ) : (
           <span></span>

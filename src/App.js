@@ -19,7 +19,7 @@ import Register from "./components/Register";
 function App() {
 
   const [cookies, setCookie, removeCookie] = useCookies(['auth', 'name', 'user', 'invoices']);
-  // setCookie('auth', false, { path: '/' });
+  //setCookie('auth', false, { path: '/' });
   const [user, setUser] = useState({});
   const [invoices, setInvoices] = useState([]);
 
