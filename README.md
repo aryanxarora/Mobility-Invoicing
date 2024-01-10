@@ -8,3 +8,5 @@ Technologies Used:
 - JS PDF
 - .NET
 - Microsoft Azure
+- MySQL
+- SSMS
